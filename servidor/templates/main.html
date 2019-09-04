@@ -1,0 +1,30 @@
+<html>
+    
+<head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+</head>
+<body>
+    <h1>Encuesta Didactica</h1>
+    <p>Leido</p>
+    <input>
+    <div class="c"><p>asdasdasd</p></div>
+    <p id="cardId"></p>
+    <script>
+    $(document).ready(function(){
+        setInterval(leer_cososo, 1000);
+        function leer_cososo(){
+            console.log("leyendo cososo")
+            $.get("/serial-data", function(data){
+                console.log("lei: "+data)
+                if(data.data != ""){
+                    $('#cardId').text(data.data)
+                }
+            })
+        }
+    })
+    </script>
+    
+</body>
+</html>
