@@ -1,15 +1,35 @@
-<html>
+<html >
     
 <head>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+     
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" href="/static/stylesheets/style.css">   
 </head>
-<body>
-    <h1>Encuesta Didactica</h1>
+<body >
+    <h1 class="text-center" >Encuesta Didactica <span class="badge badge-secondary">Semana Tic</span></h1>    
+    
+    <div class="row justify-content-center h-50">
+        <div id="content-pregunta" class="col-6 h-50"><h2 class="text-center align-middle" >¿Cuantas horas al dia usas el celular?</h2></div>
+        
+    </div>
+
+    <div class="row justify-content-around">
+        <div id="content-respuesta1" class="col-4 h-50"><h2 class="text-center align-middle" >¿Cuantas horas al dia usas el celular?</h2></div>
+        <div id="content-respuesta2" class="col-4 h-50"><h2 class="text-center align-middle" >¿Cuantas horas al dia usas el celular?</h2></div>
+    </div>
+    <div class="row justify-content-around" style="margin-top: 2%">
+        <div id="content-respuesta3" class="col-4 h-50"><h2 class="text-center align-middle" >¿Cuantas horas al dia usas el celular?</h2></div>
+        <div id="content-respuesta4" class="col-4 h-50"><h2 class="text-center align-middle" >¿Cuantas horas al dia usas el celular?</h2></div>
+    </div>    
+        
+        
+        
+    
+
     <p>Leido</p>
-    <input>
-    <div class="c"><p>asdasdasd</p></div>
+
+    
     <p id="cardId"></p>
     <script>
     $(document).ready(function(){

@@ -2,6 +2,7 @@ from flask import Flask, render_template, jsonify
 import serial, time
 
 app = Flask("pepito")
+app.static_folder = 'static'
 arduino = serial.Serial('/dev/ttyACM0', 9600,  timeout=1)
 
 @app.route('/')
