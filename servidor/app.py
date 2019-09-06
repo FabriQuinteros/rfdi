@@ -1,10 +1,19 @@
-from flask import Flask, render_template, jsonify
 import serial, time
+from flask import Flask, render_template, jsonify
+from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
+from config import Config
 
 
 app = Flask("pepito")
-app.static_folder = 'static'
-arduino = serial.Serial('/dev/ttyACM0', 9600,  timeout=1)
+app.config.from_object(Config)
+db = SQLAlchemy(app)
+migrate = Migrate(app, db)
+
+import models
+
+arduino = None
+
 
 @app.route('/')
 def hello():
@@ -25,10 +34,16 @@ def hello4():
 
 @app.route('/serial-data')
 def serial_data():
-    rawString = arduino.readline()
+    rawString = ''
+    if arduino != None:
+        rawString = arduino.readline()
     return jsonify(data = rawString)
 
 
 
 if __name__ == '__main__':
+    try:
+        arduino = serial.Serial('/dev/ttyACM0', 9600,  timeout=1)
+    except serial.serialutil.SerialException:
+        print "ERROR: no se pudo abrir puerto /dev/ttyACM0"
     app.run()
