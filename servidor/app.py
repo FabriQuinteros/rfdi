@@ -1,6 +1,7 @@
 from flask import Flask, render_template, jsonify
 import serial, time
 
+
 app = Flask("pepito")
 app.static_folder = 'static'
 arduino = serial.Serial('/dev/ttyACM0', 9600,  timeout=1)
@@ -9,9 +10,17 @@ arduino = serial.Serial('/dev/ttyACM0', 9600,  timeout=1)
 def hello():
     return render_template("main.html")
 
-@app.route('/hola')
+@app.route('/pregunta2')
 def hello2():
-    return "ajksdhkasjhdkjhaskjdh"
+    return render_template("pregunta2.html")
+
+@app.route('/pregunta3')
+def hello3():
+    return render_template("pregunta3.html")
+
+@app.route('/pregunta4')
+def hello4():
+    return render_template("pregunta4.html")
 
 
 @app.route('/serial-data')

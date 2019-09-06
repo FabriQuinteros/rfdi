@@ -1,34 +1,29 @@
-body{
-    background-color: #5E5A59;
-}
-
 #content-pregunta{
-    background-color: white;
-   
-    border-radius: 15px;
+    background-color: #272445;
+   color:white;
+    
 }
 
 #content-respuesta1{
-    background-color: green;
-   
-    border-radius: 15px;
+    background-color: #2a8c0d;
+    color:white;
+    
 }
 
 #content-respuesta2{
-    background-color: red;
-   
-    border-radius: 15px;
+    background-color: #e21b3a;
+    color:white;
+    
 }
 
 #content-respuesta3{
-    background-color: yellow;
-   
-    border-radius: 15px;
+    background-color: #c99e0d;
+    color:white;
+    
 }
 
 #content-respuesta4{
-    background-color: blue;
-   
-    border-radius: 15px;
+    background-color: #126acc;
+    color:white;
+    
 }
-
