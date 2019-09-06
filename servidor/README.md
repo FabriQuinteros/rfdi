@@ -38,3 +38,9 @@ db.session.add(r)
 db.session.commit()
 ```
 
+## Trabajar con formularios
+
+1. Instalar flask-wtf
+```
+pip install flask-wtf
+```
