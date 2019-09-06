@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="row justify-content-center w-100 p-3">
+        <div id="content-pregunta" class="col-6 w-100 p-3"><h2 class="text-center align-middle" >{{pregunta}}</h2></div>
+        
+    </div>
+
+    <div class="row justify-content-around">
+        <div id="content-respuesta1" class="respuesta col-5 w-75 p-3"><h2 class="text-center align-middle" >{{respuestas[0]}}</h2></div>
+        <div id="content-respuesta2" class="respuesta col-5 w-75 p-3"><h2 class="text-center align-middle" >{{respuestas[1]}}</h2></div>
+    </div>
+    {% if respuestas|length > 2 %}
+        <div class="row justify-content-around" style="margin-top: 2%">
+            <div id="content-respuesta3" class="respuesta col-5 w-75 p-3"><h2 class="text-center align-middle" >{{respuestas[2]}}</h2></div>
+            <div id="content-respuesta4" class="respuesta col-5 w-75 p-3"><h2 class="text-center align-middle" >{{respuestas[3]}}</h2></div>
+        </div>  
+    
+    {% endif %}
+
+    <form id="form_respuesta" action="" method="post" novalidate>
+            {{ form.hidden_tag() }}
+            <p>
+                {{ form.respuesta }}<br>
+            </p>
+            <input type="submit">
+    </form>
+        
+{% endblock %}

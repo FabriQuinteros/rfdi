@@ -5,23 +5,13 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <link rel="stylesheet" href="/static/stylesheets/style.css">   
+    <script src="https://www.chartjs.org/dist/2.8.0/Chart.min.js"></script>
 </head>
 <body >
     <h1 class="text-center" >Encuesta Didactica <span class="badge badge-secondary">Semana Tic</span></h1>    
     
-    <div class="row justify-content-center w-100 p-3">
-        <div id="content-pregunta" class="col-6 w-100 p-3"><h2 class="text-center align-middle" >¿Antes de dormir usas el celular?</h2></div>
-        
-    </div>
-
-    <div class="row justify-content-around">
-        <div id="content-respuesta1" class="col-5 w-75 p-3"><h2 class="text-center align-middle" >Si</h2></div>
-        <div id="content-respuesta2" class="col-5 w-75 p-3"><h2 class="text-center align-middle" >No</h2></div>
-    </div>
-      
-        
-        
-        
+    {% block content %}
+    {% endblock %}
     
 
     <p>Leido</p>
@@ -29,6 +19,20 @@
     
     <p id="cardId"></p>
     <script>
+    function rfid_to_int(rfid){
+        console.log(rfid)
+        if(rfid == 222206174213){
+            return 1
+        }else if(rfid == 99125171172){
+            return 2
+        }else if(rfid == 381973618){
+            return 3
+        }else{
+            return 4
+        }
+    }
+
+
     $(document).ready(function(){
         setInterval(leer_cososo, 1000);
         function leer_cososo(){
@@ -36,7 +40,12 @@
             $.get("/serial-data", function(data){
                 console.log("lei: "+data)
                 if(data.data != ""){
-                    $('#cardId').text(data.data)
+                    var rfid = rfid_to_int(data.data)
+                    if(rfid <= $('.respuesta').length){ 
+                        $('#cardId').text(rfid)
+                        $('#respuesta').attr('value', rfid)
+                        $('#form_respuesta').submit()
+                    }
                 }
             })
         }
