@@ -4,19 +4,19 @@
 {% block content %}
 
 
-<div id="canvas-holder" style="width:40%">
-		<canvas id="chart-area"></canvas>
+<div id="canvas-holder"  class="row" style="text-align: center">
+        <h1 class="col-6">Pregunta 1</h1>
+        <h1 class="col-6">Pregunta 2</h1> 
+        <canvas id="chart-area" class="col-6"></canvas>
+               
+        <canvas id="chart-area2" class="col-6"></canvas>
+        <h1 class="col-6">Pregunta 3</h1>
+        <h1 class="col-6">Pregunta 4</h1>
+        <canvas id="chart-area3" class="col-6"></canvas>
+        
+        <canvas id="chart-area4" class="col-6"></canvas>
 </div>
-<div id="canvas-holder" style="width:40%">
-	<canvas id="chart-area2"></canvas>
-</div>
-<div id="canvas-holder" style="width:40%">
-    <canvas id="chart-area3"></canvas>
-</div>
-<div id="canvas-holder" style="width:40%">
-    <canvas id="chart-area4"></canvas>
-</div>
-
+    
     
 
 
@@ -49,10 +49,10 @@
                         label: 'Dataset 1'
                     }],
                     labels: [
-                        'Red',
-                        'Orange',
-                        'Yellow',
-                        'Green',
+                        'Mas de 8hs al día',
+                        '5hs a 6hs al día',
+                        '4hs al día',
+                        'Menos de 3hs al día',
                     ]
                 },
                 options: {
@@ -82,10 +82,10 @@
                         label: 'Dataset 2'
                     }],
                     labels: [
-                        'Red',
-                        'Orange',
-                        'Yellow',
-                        'Green',
+                        'Más de 5hs al día',
+                        'Entre 4hs a 5hs al día',
+                        '3hs al día',
+                        'Menos de 3hs al día',
                     ]
                 },
                 options: {
@@ -102,8 +102,7 @@
                         data: [
                             {{ respuestas3[0] }} ,
                             {{ respuestas3[1] }} ,
-                            {{ respuestas3[2] }} ,
-                            {{ respuestas3[3] }} ,
+                            
                         ],
                         backgroundColor: [
                             window.chartColors.red,
@@ -114,10 +113,9 @@
                         label: 'Dataset 3'
                     }],
                     labels: [
-                        'Red',
-                        'Orange',
-                        'Yellow',
-                        'Green',
+                        'Si',
+                        'No',
+                        
                     ]
                 },
                 options: {
@@ -134,8 +132,7 @@
                         data: [
                             {{ respuestas4[0] }} ,
                             {{ respuestas4[1] }} ,
-                            {{ respuestas4[2] }} ,
-                            {{ respuestas4[3] }} ,
+                            
                         ],
                         backgroundColor: [
                             window.chartColors.red,
@@ -146,10 +143,9 @@
                         label: 'Dataset 4'
                     }],
                     labels: [
-                        'Red',
-                        'Orange',
-                        'Yellow',
-                        'Green',
+                        'Si',
+                        'No',
+                        
                     ]
                 },
                 options: {
