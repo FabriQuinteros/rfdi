@@ -109,7 +109,7 @@ def stats():
 
 
 
-    return render_template("stats.html", respuestas1=respuestas1)
+    return render_template("stats.html", respuestas1=respuestas1, respuestas2=respuestas2, respuestas3=respuestas3,respuestas4=respuestas4)
 
 
 def dame_respuestas(id_pregunta):
