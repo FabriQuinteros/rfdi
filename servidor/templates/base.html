@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="/static/stylesheets/style.css">   
     <script src="https://www.chartjs.org/dist/2.8.0/Chart.min.js"></script>
 </head>
-<body >
-    <h1 class="text-center" >Encuesta Didactica <span class="badge badge-secondary">Semana Tic</span></h1>    
+<body style="background-color: rgba(255, 255, 255, 0.2)">
+    <h1 class="text-center" >Encuesta Interactiva <span class="badge badge-secondary">Radiofrecuencia</span></h1>    
     
     {% block content %}
     {% endblock %}
@@ -16,7 +16,7 @@
 
    
     <script>
-    function rfid_to_int(rfid){
+    function rfid_to_int(rfid){   
         console.log(rfid)
         if(rfid == 222206174213){
             return 1

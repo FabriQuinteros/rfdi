@@ -75,7 +75,8 @@ def hello2(id_pregunta):
         db.session.commit()
         id_pregunta = id_pregunta + 1
         if id_pregunta >= 4:
-            return redirect('/')
+            return redirect('/stats')
+            #aca hay que aumentar el contador de cantidad de encuestados
         else: 
             return redirect('/pregunta/%i'%id_pregunta)
 
@@ -106,16 +107,8 @@ def stats():
     for i in range(1, 3):
         cant_respuestas = len(models.Respuesta.query.filter(models.Respuesta.pregunta==3).filter(models.Respuesta.respuesta==i).all())
         respuestas4.append(cant_respuestas)
-
-
-
+        
     return render_template("stats.html", respuestas1=respuestas1, respuestas2=respuestas2, respuestas3=respuestas3,respuestas4=respuestas4)
-
-
-def dame_respuestas(id_pregunta):
-    Res
-
-
 
 
 @app.route('/serial-data')

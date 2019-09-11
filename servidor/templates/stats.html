@@ -3,15 +3,21 @@
 
 {% block content %}
 
-
-<div id="canvas-holder"  class="row" style="text-align: center">
-        <h1 class="col-6">Pregunta 1</h1>
-        <h1 class="col-6">Pregunta 2</h1> 
+<button onclick="window.location.href='/'">continue</button>
+<div id="canvas-holder"  class="row" style="text-align: center; ">
+        <h1 class="col-6">¿Cuantas horas al dia usas el celular?</h1>
+        <h1 class="col-6">¿Cuantas horas le dedicas a las redes sociales?</h1> 
+        <div id="cantTotal" class="col-6">Respuestas Totales: </div>
+        <div id="cantTotal2" class="col-6">Respuestas Totales:</div>
         <canvas id="chart-area" class="col-6"></canvas>
                
         <canvas id="chart-area2" class="col-6"></canvas>
-        <h1 class="col-6">Pregunta 3</h1>
-        <h1 class="col-6">Pregunta 4</h1>
+        <h1 class="col-6">¿Antes de dormir usas el celular?</h1>
+        <h1 class="col-6">¿Las tecnologias juegan un papel importante en tu vida?</h1>
+        
+        <div id="cantTotal3" class="col-6">Respuestas Totales:</div>
+        
+        <div id="cantTotal4" class="col-6">Respuestas Totales:</div>
         <canvas id="chart-area3" class="col-6"></canvas>
         
         <canvas id="chart-area4" class="col-6"></canvas>
@@ -22,10 +28,10 @@
 
     <script>
         window.chartColors = {
-	red: 'rgb(255, 99, 132)',
+	red: 'rgb(255, 20, 20)',
 	orange: 'rgb(255, 159, 64)',
 	yellow: 'rgb(255, 205, 86)',
-	green: 'rgb(75, 192, 192)',
+	green: 'rgb(46, 139, 87)',
 	blue: 'rgb(54, 162, 235)',
 	purple: 'rgb(153, 102, 255)',
 	grey: 'rgb(201, 203, 207)'
@@ -41,10 +47,10 @@
                             {{ respuestas1[3] }} ,
                         ],
                         backgroundColor: [
-                            window.chartColors.red,
-                            window.chartColors.orange,
-                            window.chartColors.yellow,
                             window.chartColors.green,
+                            window.chartColors.red,
+                            window.chartColors.yellow,
+                            window.chartColors.blue,
                         ],
                         label: 'Dataset 1'
                     }],
@@ -74,10 +80,10 @@
                             {{ respuestas2[3] }} ,
                         ],
                         backgroundColor: [
-                            window.chartColors.red,
-                            window.chartColors.orange,
-                            window.chartColors.yellow,
                             window.chartColors.green,
+                            window.chartColors.red,
+                            window.chartColors.yellow,
+                            window.chartColors.blue,
                         ],
                         label: 'Dataset 2'
                     }],
@@ -105,10 +111,10 @@
                             
                         ],
                         backgroundColor: [
-                            window.chartColors.red,
-                            window.chartColors.orange,
-                            window.chartColors.yellow,
                             window.chartColors.green,
+                            window.chartColors.red,
+                            window.chartColors.yellow,
+                            window.chartColors.blue,
                         ],
                         label: 'Dataset 3'
                     }],
@@ -135,10 +141,10 @@
                             
                         ],
                         backgroundColor: [
-                            window.chartColors.red,
-                            window.chartColors.orange,
-                            window.chartColors.yellow,
                             window.chartColors.green,
+                            window.chartColors.red,
+                            window.chartColors.yellow,
+                            window.chartColors.blue,
                         ],
                         label: 'Dataset 4'
                     }],
@@ -176,7 +182,19 @@
                 window.myPie = new Chart(ctx4, config4);
                 window.myPie.update();
             };
+            var total={{respuestas1[0]}}+{{respuestas1[1]}}+{{respuestas1[2]}}+{{respuestas1[3]}};
+            $('#cantTotal').append(total);
 
+            total={{respuestas2[0]}}+{{respuestas2[1]}}+{{respuestas2[2]}}+{{respuestas2[3]}};
+            $('#cantTotal2').append(total);
+
+            total={{respuestas3[0]}}+{{respuestas3[1]}};
+            $('#cantTotal3').append(total);
+
+            total={{respuestas4[0]}}+{{respuestas4[1]}};
+            $('#cantTotal4').append(total);
+
+            
         </script>
 
 {% endblock %}
